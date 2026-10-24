@@ -29,6 +29,7 @@ function updateOrderPreview() {
   orderStatus.textContent = '';
 }
 orderForm.addEventListener('input', updateOrderPreview);
+window.addEventListener('pageshow', updateOrderPreview);
 orderForm.addEventListener('submit', event => {
   event.preventDefault();
   const items = selectedItems();
