@@ -39,6 +39,5 @@ orderForm.addEventListener('submit', event => {
   if (!/^\d{10,15}$/.test(phone)) { orderStatus.textContent = 'Esta demo aún no envía pedidos: falta conectar el WhatsApp de pedidos del negocio.'; return; }
   const details = orderForm.elements.details.value.trim();
   const message = `Hola, Q Fresa Maow. Quiero consultar este pedido:\n${lines.join('\n')}${details ? `\nDetalles: ${details}` : ''}\n¿Me confirman disponibilidad y total?`;
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
-  orderStatus.textContent = 'Se abrió WhatsApp con tu pedido listo para enviar. Revisa el mensaje antes de enviarlo.';
+  window.location.assign(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`);
 });
